@@ -10,7 +10,7 @@ router.post("/create-checkout", express.json(), authenticate, createCheckout);
 
 router.post(
     "/webhook",
-    express.raw({ type: "application/json" }),
+    express.raw({ type: "*/*", limit: "1mb" }),
     lemonWebhook
 );
 

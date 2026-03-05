@@ -1,0 +1,402 @@
+[
+  {
+    "id": 1,
+    "name": "Củ kiệu",
+    "price": 40000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/cu-kieu.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Lạp xưởng",
+    "price": 120000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/lap-xuong.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Xúc xích",
+    "price": 60000,
+    "category": "food",
+    "isActive": false,
+    "image": "/images/products/xuc-xich.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Thịt kho trứng",
+    "price": 80000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/thit-kho-trung.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Bánh chưng",
+    "price": 70000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/banh-chung.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Bánh tét",
+    "price": 65000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/banh-tet.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Hạt dưa",
+    "price": 50000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/hat-dua.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Hạt bí",
+    "price": 45000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/hat-bi.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Kẹo Tết",
+    "price": 40000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/keo-tet.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Bánh mứt Tết",
+    "price": 60000,
+    "category": "food",
+    "isActive": false,
+    "image": "/images/products/banh-muc-tet.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Bia lon",
+    "price": 20000,
+    "category": "drink",
+    "isActive": true,
+    "image": "/images/products/bia-lon.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Rượu bách hoa tửu",
+    "price": 150000,
+    "category": "drink",
+    "isActive": true,
+    "image": "/images/products/ruou.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Nước ngọt",
+    "price": 15000,
+    "category": "drink",
+    "isActive": true,
+    "image": "/images/products/nuoc-ngot.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Nước suối",
+    "price": 10000,
+    "category": "drink",
+    "isActive": true,
+    "image": "/images/products/nuoc-suoi.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Lô tô",
+    "price": 30000,
+    "category": "game",
+    "isActive": true,
+    "image": "/images/products/lo-to.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Xì zách",
+    "price": 20000,
+    "category": "game",
+    "isActive": true,
+    "image": "/images/products/xi-dach.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Tiến lên",
+    "price": 20000,
+    "category": "game",
+    "isActive": true,
+    "image": "/images/products/tien-len.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Bài cào",
+    "price": 20000,
+    "category": "game",
+    "isActive": true,
+    "image": "/images/products/bai-cao.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Củ cải muối",
+    "price": 35000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/cu-cai-muoi.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Dưa món",
+    "price": 45000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/dua-mon.jpg"
+  },
+  {
+    "id": 21,
+    "name": "Nem chua",
+    "price": 55000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/nem-chua.jpg"
+  },
+  {
+    "id": 22,
+    "name": "Giò lụa",
+    "price": 120000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/gio-lua.jpg"
+  },
+  {
+    "id": 23,
+    "name": "Giò thủ",
+    "price": 130000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/gio-thu.jpg"
+  },
+  {
+    "id": 24,
+    "name": "Chả lụa",
+    "price": 110000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/cha-lua.jpg"
+  },
+  {
+    "id": 25,
+    "name": "Mứt dừa",
+    "price": 50000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/mut-dua.jpg"
+  },
+  {
+    "id": 26,
+    "name": "Mứt gừng",
+    "price": 45000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/mut-gung.jpg"
+  },
+  {
+    "id": 27,
+    "name": "Mứt me",
+    "price": 55000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/mut-me.jpg"
+  },
+  {
+    "id": 28,
+    "name": "Bánh in",
+    "price": 40000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/banh-in.jpg"
+  },
+  {
+    "id": 29,
+    "name": "Bánh thuẫn",
+    "price": 60000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/banh-thuan.jpg"
+  },
+  {
+    "id": 30,
+    "name": "Bánh tổ",
+    "price": 70000,
+    "category": "food",
+    "isActive": true,
+    "image": "/images/products/banh-to.jpg"
+  },
+  {
+    "id": 31,
+    "name": "Trà sen",
+    "price": 30000,
+    "category": "drink",
+    "isActive": true,
+    "image": "/images/products/tra-sen.jpg"
+  },
+  {
+    "id": 32,
+    "name": "Trà lài",
+    "price": 25000,
+    "category": "drink",
+    "isActive": true,
+    "image": "/images/products/tra-lai.jpg"
+  },
+  {
+    "id": 33,
+    "name": "Nước sâm",
+    "price": 20000,
+    "category": "drink",
+    "isActive": true,
+    "image": "/images/products/nuoc-sam.jpg"
+  },
+  {
+    "id": 34,
+    "name": "Nước mía",
+    "price": 15000,
+    "category": "drink",
+    "isActive": true,
+    "image": "/images/products/nuoc-mia.jpg"
+  },
+  {
+    "id": 35,
+    "name": "Nước tắc",
+    "price": 18000,
+    "category": "drink",
+    "isActive": true,
+    "image": "/images/products/nuoc-tac.jpg"
+  },
+  {
+    "id": 36,
+    "name": "Bia chai",
+    "price": 22000,
+    "category": "drink",
+    "isActive": true,
+    "image": "/images/products/bia-chai.jpg"
+  },
+  {
+    "id": 37,
+    "name": "Rượu nếp",
+    "price": 140000,
+    "category": "drink",
+    "isActive": true,
+    "image": "/images/products/ruou-nep.jpg"
+  },
+  {
+    "id": 38,
+    "name": "Rượu gạo",
+    "price": 100000,
+    "category": "drink",
+    "isActive": true,
+    "image": "/images/products/ruou-gao.jpg"
+  },
+  {
+    "id": 39,
+    "name": "Cờ tướng",
+    "price": 50000,
+    "category": "game",
+    "isActive": true,
+    "image": "/images/products/co-tuong.jpg"
+  },
+  {
+    "id": 40,
+    "name": "Cờ cá ngựa",
+    "price": 45000,
+    "category": "game",
+    "isActive": true,
+    "image": "/images/products/co-ca-ngua.jpg"
+  },
+  {
+    "id": 41,
+    "name": "Cờ vua",
+    "price": 60000,
+    "category": "game",
+    "isActive": true,
+    "image": "/images/products/co-vua.jpg"
+  },
+  {
+    "id": 42,
+    "name": "Cờ domino",
+    "price": 40000,
+    "category": "game",
+    "isActive": true,
+    "image": "/images/products/co-domino.jpg"
+  },
+  {
+    "id": 43,
+    "name": "Bộ bài Uno",
+    "price": 70000,
+    "category": "game",
+    "isActive": true,
+    "image": "/images/products/bai-uno.jpg"
+  },
+  {
+    "id": 44,
+    "name": "Bộ bài Poker",
+    "price": 30000,
+    "category": "game",
+    "isActive": true,
+    "image": "/images/products/bai-poker.jpg"
+  },
+  {
+    "id": 45,
+    "name": "Bộ cờ tỷ phú",
+    "price": 120000,
+    "category": "game",
+    "isActive": true,
+    "image": "/images/products/co-ty-phu.jpg"
+  },
+  {
+    "id": 46,
+    "name": "Bộ xếp hình gỗ",
+    "price": 80000,
+    "category": "game",
+    "isActive": true,
+    "image": "/images/products/xep-hinh-go.jpg"
+  },
+  {
+    "id": 47,
+    "name": "Lắc xí ngầu",
+    "price": 20000,
+    "category": "game",
+    "isActive": true,
+    "image": "/images/products/lac-xi-ngau.jpg"
+  },
+  {
+    "id": 48,
+    "name": "Bộ bài Tam cúc",
+    "price": 25000,
+    "category": "game",
+    "isActive": true,
+    "image": "/images/products/bai-tam-cuc.jpg"
+  },
+  {
+    "id": 49,
+    "name": "Bộ bài Tổ tôm",
+    "price": 30000,
+    "category": "game",
+    "isActive": true,
+    "image": "/images/products/bai-to-tom.jpg"
+  },
+  {
+    "id": 50,
+    "name": "Bộ trò chơi gia đình Tết",
+    "price": 150000,
+    "category": "game",
+    "isActive": true,
+    "image": "/images/products/tro-choi-gia-dinh.jpg"
+  }
+]

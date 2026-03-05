@@ -4,7 +4,24 @@ const path = require("path");
 
 const app = express();
 
-app.use(cors());
+// CORS: cho phép FE (local + production). Trên Railway set CORS_ORIGIN = URL FE (vd: https://xxx.vercel.app hoặc nhiều URL cách nhau bởi dấu phẩy)
+const allowedOrigins = process.env.CORS_ORIGIN
+    ? process.env.CORS_ORIGIN.split(",").map((o) => o.trim()).filter(Boolean)
+    : ["http://localhost:5173", "http://localhost:3000", "http://127.0.0.1:5173"];
+
+app.use(
+    cors({
+        origin(origin, callback) {
+            if (!origin) return callback(null, true);
+            if (allowedOrigins.includes("*") || allowedOrigins.includes(origin)) {
+                return callback(null, true);
+            }
+            callback(null, false);
+        },
+        methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+        allowedHeaders: ["Content-Type", "Authorization"],
+    })
+);
 
 // middleware logger
 const logger = require("./middlewares/logger.middleware");

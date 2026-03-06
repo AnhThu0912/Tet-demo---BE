@@ -4,16 +4,18 @@ const path = require("path");
 
 const app = express();
 
-// CORS: cho phép FE (local + production). Trên Railway set CORS_ORIGIN = URL FE (vd: https://xxx.vercel.app hoặc nhiều URL cách nhau bởi dấu phẩy)
-const allowedOrigins = process.env.CORS_ORIGIN
+// CORS: cho phép FE (local + production). Trên Railway set CORS_ORIGIN = URL FE (vd: https://tet-demo-fe.vercel.app — không cần dấu / cuối)
+const rawOrigins = process.env.CORS_ORIGIN
     ? process.env.CORS_ORIGIN.split(",").map((o) => o.trim()).filter(Boolean)
     : ["http://localhost:5173", "http://localhost:3000", "http://127.0.0.1:5173"];
+const allowedOrigins = rawOrigins.map((o) => o.replace(/\/+$/, ""));
 
 app.use(
     cors({
         origin(origin, callback) {
             if (!origin) return callback(null, true);
-            if (allowedOrigins.includes("*") || allowedOrigins.includes(origin)) {
+            const normalizedOrigin = origin.replace(/\/+$/, "");
+            if (allowedOrigins.includes("*") || allowedOrigins.includes(normalizedOrigin)) {
                 return callback(null, true);
             }
             callback(null, false);

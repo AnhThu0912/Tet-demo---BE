@@ -21,7 +21,7 @@ app.use(
             callback(null, false);
         },
         methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-        allowedHeaders: ["Content-Type", "Authorization", "Cache-Control", "Pragma"],
+        allowedHeaders: ["Content-Type", "Authorization", "Cache-Control", "Pragma", "X-Cart-Token"],
     })
 );
 

@@ -8,6 +8,7 @@ const pool = mysql.createPool({
     database: process.env.DB_NAME || "tet_db",
     waitForConnections: true,
     connectionLimit: 10,
+    timezone: "+07:00",
 });
 
 module.exports = pool;

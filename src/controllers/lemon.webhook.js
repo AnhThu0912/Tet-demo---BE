@@ -38,7 +38,9 @@ async function lemonWebhook(req, res) {
             const custom = payload.meta?.custom_data || {};
             const orderId = parseInt(custom.orderId, 10);
             const paymentId = parseInt(custom.paymentId, 10);
-            const lemonOrderId = String(payload.data?.id || "");
+            const lemonOrderId = String(
+                payload.data?.attributes?.order_number || payload.data?.id || ""
+            );
 
             if (!orderId || !paymentId) {
                 console.warn("Lemon webhook: missing orderId or paymentId", custom);

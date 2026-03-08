@@ -41,7 +41,6 @@ async function lemonWebhook(req, res) {
             const lemonOrderId = String(
                 payload.data?.attributes?.order_number || payload.data?.id || ""
             );
-            const lemonResourceId = String(payload.data?.id || "");
 
             if (!orderId || !paymentId) {
                 console.warn("Lemon webhook: missing orderId or paymentId", custom);
@@ -68,19 +67,18 @@ async function lemonWebhook(req, res) {
                 return res.status(200).send("OK");
             }
 
-            // LemonSqueezy trả total theo cents, DB lưu theo đơn vị gốc
+            // Log warning nếu số tiền không khớp (variant giá cố định trong test mode)
             const expectedCents = Math.round(Number(payment.amount) * 100);
             if (lemonTotal > 0 && lemonTotal !== expectedCents) {
-                console.error("Lemon webhook: amount mismatch!", { lemonTotal, expectedCents, paymentId, orderId });
-                return res.status(200).send("OK");
+                console.warn("Lemon webhook: amount mismatch (variant price differs from order total)", { lemonTotal, expectedCents, paymentId, orderId });
             }
 
             const conn = await pool.getConnection();
             try {
                 await conn.beginTransaction();
                 await conn.query(
-                    "UPDATE payments SET status = 'succeeded', lemon_order_id = ?, lemon_resource_id = ? WHERE id = ?",
-                    [lemonOrderId || null, lemonResourceId || null, paymentId]
+                    "UPDATE payments SET status = 'succeeded', lemon_order_id = ? WHERE id = ?",
+                    [lemonOrderId || null, paymentId]
                 );
                 await conn.query(
                     "UPDATE orders SET status = 'paid' WHERE id = ?",

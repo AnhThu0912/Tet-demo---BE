@@ -33,6 +33,9 @@ async function getCheckoutUrlForOrder(orderId, totalPrice) {
                         paymentId: String(paymentId),
                     },
                 },
+                product_options: {
+                    redirect_url: `${process.env.FRONTEND_URL || "https://tet-demo-fe.vercel.app"}/orders?payment=success`,
+                },
                 test_mode: true,
             },
             relationships: {

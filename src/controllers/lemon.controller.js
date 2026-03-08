@@ -6,11 +6,22 @@ const axios = require("axios");
  * Dùng chung cho createCheckout (route Lemon) và payOrder (route Orders khi user bấm "Thanh toán ngay").
  */
 async function getCheckoutUrlForOrder(orderId, totalPrice) {
-    const [result] = await pool.query(
-        "INSERT INTO payments (order_id, amount, status, provider) VALUES (?, ?, 'created', 'lemonsqueezy')",
-        [orderId, totalPrice]
+    // Kiểm tra đã có payment "created" cho order này chưa, tránh tạo trùng
+    const [existing] = await pool.query(
+        "SELECT id FROM payments WHERE order_id = ? AND provider = 'lemonsqueezy' AND status = 'created' LIMIT 1",
+        [orderId]
     );
-    const paymentId = result.insertId;
+
+    let paymentId;
+    if (existing.length > 0) {
+        paymentId = existing[0].id;
+    } else {
+        const [result] = await pool.query(
+            "INSERT INTO payments (order_id, amount, status, provider) VALUES (?, ?, 'created', 'lemonsqueezy')",
+            [orderId, totalPrice]
+        );
+        paymentId = result.insertId;
+    }
 
     const payload = {
         data: {

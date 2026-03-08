@@ -33,17 +33,24 @@ async function reconcilePendingOrders(req, res) {
             return res.status(500).json({ message: "Thiếu LEMONSQUEEZY_API_KEY hoặc STORE_ID" });
         }
 
-        const lemonResponse = await axios.get(
-            `https://api.lemonsqueezy.com/v1/orders?filter[store_id]=${storeId}&sort=-created_at&page[size]=50`,
-            {
+        // Lấy thời gian payment cũ nhất để filter, tránh query quá nhiều
+        const oldestDate = pendingPayments[0].created_at;
+        const filterFrom = new Date(oldestDate).toISOString();
+
+        // Fetch tất cả pages từ LemonSqueezy API
+        let lemonOrders = [];
+        let nextUrl = `https://api.lemonsqueezy.com/v1/orders?filter[store_id]=${storeId}&filter[created_at_gte]=${filterFrom}&sort=-created_at&page[size]=50`;
+
+        while (nextUrl) {
+            const lemonResponse = await axios.get(nextUrl, {
                 headers: {
                     Authorization: `Bearer ${apiKey}`,
                     Accept: "application/vnd.api+json",
                 },
-            }
-        );
-
-        const lemonOrders = lemonResponse.data.data || [];
+            });
+            lemonOrders = lemonOrders.concat(lemonResponse.data.data || []);
+            nextUrl = lemonResponse.data.links?.next || null;
+        }
 
         // 3) Match và update
         const reconciled = [];

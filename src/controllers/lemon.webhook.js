@@ -38,6 +38,7 @@ async function lemonWebhook(req, res) {
             const custom = payload.meta?.custom_data || {};
             const orderId = parseInt(custom.orderId, 10);
             const paymentId = parseInt(custom.paymentId, 10);
+            const lemonOrderId = String(payload.data?.id || "");
 
             if (!orderId || !paymentId) {
                 console.warn("Lemon webhook: missing orderId or paymentId", custom);
@@ -48,15 +49,15 @@ async function lemonWebhook(req, res) {
             try {
                 await conn.beginTransaction();
                 await conn.query(
-                    "UPDATE payments SET status = 'succeeded' WHERE id = ?",
-                    [paymentId]
+                    "UPDATE payments SET status = 'succeeded', lemon_order_id = ? WHERE id = ?",
+                    [lemonOrderId || null, paymentId]
                 );
                 await conn.query(
                     "UPDATE orders SET status = 'paid' WHERE id = ?",
                     [orderId]
                 );
                 await conn.commit();
-                console.log("Lemon webhook: order", orderId, "& payment", paymentId, "updated to paid/succeeded");
+                console.log("Lemon webhook: order", orderId, "& payment", paymentId, "lemonOrder", lemonOrderId, "updated to paid/succeeded");
             } catch (err) {
                 await conn.rollback();
                 console.error("Lemon webhook DB error:", err.message);
